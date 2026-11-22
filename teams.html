@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>All Teams – Esports Pedia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#03120d;--panel:#06291c;--head:#0a3a28;--line:#1d5a40;--green:#0f6b43;--red:#d6001c;--gold:#ffc933;--orange:#ff9d00;--text:#eaf3ee;--muted:#9fb8ab;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 15px/1.6 Inter,system-ui,Arial,sans-serif}
+a{color:inherit;text-decoration:none}a:hover{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+h1,h2,h3,.brand{font-family:"Space Grotesk",Inter,sans-serif;margin:0}
+.wrap{max-width:1360px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:600 14px Inter,sans-serif;padding:10px 18px;border-radius:8px;border:2px solid transparent;cursor:pointer;white-space:nowrap}
+.btn.red{background:var(--red);color:#fff}.btn.red:hover{background:#f0001f;color:#fff}
+.btn.gold{border-color:var(--gold);color:var(--gold)}.btn.gold:hover{background:var(--gold);color:#03120d}
+.top{background:var(--head);border-bottom:3px solid var(--red)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:700}
+.mark{width:40px;height:40px;border-radius:10px;background:var(--red);display:grid;place-items:center;font:700 18px "Space Grotesk",sans-serif;color:#fff}
+.search{flex:1;display:flex;min-width:0}
+.search input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);color:var(--text);padding:11px 14px;border-radius:8px 0 0 8px;font:400 14px Inter,sans-serif}
+.search input::placeholder{color:var(--muted)}
+.search button{background:var(--green);border:1px solid var(--line);border-left:0;color:#fff;padding:0 18px;border-radius:0 8px 8px 0;font:600 14px Inter,sans-serif;cursor:pointer}
+.acts{display:flex;gap:10px}
+.nav{background:var(--panel);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;overflow-x:auto;scrollbar-width:none}
+.nav a{padding:13px 18px;font:600 14px "Space Grotesk",sans-serif;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap}
+.nav a.on{color:var(--text);border-bottom-color:var(--gold)}
+.crumb{padding-top:16px;color:var(--muted);font-size:13px}
+.crumb a{color:var(--muted)}.crumb a:hover{color:var(--gold)}
+.tabs{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);margin-top:10px;flex-wrap:wrap}
+.tabs div{display:flex}
+.tabs a{padding:10px 16px;font:600 14px Inter,sans-serif;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs a.on{color:var(--text);border-bottom-color:var(--gold)}
+.tabs .btn{padding:7px 14px;margin-bottom:6px}
+.title{display:flex;align-items:center;gap:18px;padding:22px 0 6px}
+.logo{width:84px;height:84px;border-radius:16px;background:var(--head);border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-size:12px;flex:none}
+.title h1{font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-.02em}
+.title p{margin:4px 0 0;color:var(--muted)}
+.tag{display:inline-block;font:600 12px Inter,sans-serif;padding:3px 10px;border-radius:999px;background:var(--head);border:1px solid var(--line);color:var(--gold);margin-right:6px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;padding-top:18px;padding-bottom:36px;align-items:start}
+.col{display:grid;gap:20px;min-width:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:0}
+.panel>h2{background:var(--head);border-bottom:2px solid var(--gold);padding:11px 16px;font-size:16px;font-weight:600}
+.body{padding:14px 16px}
+.body p{margin:0 0 10px;color:#cfe3d8;max-width:78ch}.body p:last-child{margin:0}
+.toc{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px;color:var(--text)}
+.toc a:hover{border-color:var(--gold);color:var(--gold)}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th{text-align:left;color:var(--gold);font:600 12px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:11px 16px;border-bottom:1px solid var(--line);background:rgba(10,58,40,.45)}
+td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px}
+tr:last-child td{border-bottom:0}
+tbody tr:hover{background:rgba(15,107,67,.22)}
+td.amt{color:var(--gold);font-weight:600;white-space:nowrap}
+td.pl{font-weight:600}
+.pn{display:flex;align-items:center;gap:10px}
+.ph{width:30px;height:30px;border-radius:50%;background:var(--head);border:1px dashed var(--line);flex:none}
+.res{display:inline-block;min-width:44px;text-align:center;font:600 12px Inter,sans-serif;padding:3px 8px;border-radius:6px;background:var(--head);border:1px solid var(--line)}
+.res.w{background:var(--green);border-color:var(--green)}.res.l{background:#5a0a14;border-color:var(--red)}
+.more{display:block;padding:12px 16px;border-top:1px solid var(--line);font:600 14px Inter,sans-serif;color:var(--gold)}
+.more:hover{background:var(--head)}
+.info dl{margin:0;display:grid;grid-template-columns:110px 1fr;font-size:14px}
+.info dt,.info dd{margin:0;padding:10px 16px;border-bottom:1px solid var(--line)}
+.info dt{color:var(--muted)}
+.info dd{color:var(--text)}
+.info dd.g{color:var(--gold);font-weight:600}
+.cover{display:grid;place-items:center;padding:22px 16px 16px;gap:10px;text-align:center;border-bottom:1px solid var(--line)}
+.cover .logo{width:120px;height:120px}
+.cover h3{font-size:20px}
+.soc{display:flex;flex-wrap:wrap;gap:8px;padding:14px 16px}
+.soc a{border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:13px;background:var(--bg)}
+.soc a:hover{border-color:var(--gold)}
+.help p{margin:0 0 14px;color:#cfe3d8}
+.head{padding:22px 0 6px}
+.head h1{font-size:clamp(28px,4vw,44px);letter-spacing:-.02em;line-height:1.1}
+.head p{margin:6px 0 0;color:var(--muted)}
+.cols{grid-template-columns:260px minmax(0,1fr)}
+.fl{display:grid;gap:14px;padding:16px}
+.fl label{display:grid;gap:6px;font:600 13px Inter,sans-serif;color:var(--muted)}
+.fl input,.fl select{background:var(--bg);border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:8px;font:400 14px Inter,sans-serif;width:100%}
+.fl button{background:transparent;border:1px solid var(--line);color:var(--gold);padding:9px;border-radius:8px;font:600 14px Inter,sans-serif;cursor:pointer}
+.fl button:hover{background:var(--head)}
+.count{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.count b{font:600 18px "Space Grotesk",sans-serif}.count span{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;color:var(--text)}
+.card:hover{border-color:var(--gold);color:var(--text)}
+.card .logo{width:64px;height:64px;border-radius:12px;margin-bottom:12px}
+.card h3{font-size:17px;line-height:1.25;margin-bottom:8px}
+.card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:13px}
+.card dt{color:var(--muted)}.card dd{margin:0}.card dd.g{color:var(--gold);font-weight:600}
+.st{display:inline-block;font:600 11px Inter,sans-serif;padding:2px 8px;border-radius:999px;border:1px solid var(--line);margin-bottom:10px}
+.st.on{background:var(--green);border-color:var(--green)}
+.empty{padding:28px 16px;text-align:center;color:var(--muted)}
+@media(max-width:1000px){.cols{grid-template-columns:1fr}.cols>aside{order:0}}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px}.card .logo{width:52px;height:52px}.fl{grid-template-columns:1fr}}
+.tl{display:grid;gap:10px}
+details.tm{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+details.tm[open]{border-color:var(--gold)}
+details.tm summary{list-style:none;display:flex;align-items:center;gap:14px;padding:12px 16px;cursor:pointer;background:var(--head)}
+details.tm summary::-webkit-details-marker{display:none}
+details.tm summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);margin:0 4px 4px 4px;flex:none}
+details.tm[open] summary::after{transform:rotate(-135deg);margin-bottom:-2px}
+.rk{font:700 18px "Space Grotesk",sans-serif;color:var(--orange);min-width:36px}
+details.tm .ph{width:38px;height:38px;border-radius:8px}
+.nm{flex:1;font:600 18px "Space Grotesk",sans-serif;min-width:0}
+.tot{color:var(--gold);font-weight:600;font-size:14px;text-align:right}
+.det{padding:18px 16px;border-top:1px solid var(--line)}
+.roster{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:18px}
+.pl1{text-align:center;width:96px;font-size:13px;font-weight:600}
+.pl1 i{display:block;width:80px;height:100px;border-radius:10px;background:var(--head);border:1px dashed var(--line);margin:0 auto 6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.two div{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;text-align:center;font-size:14px}
+.two small{display:block;color:var(--muted);font-weight:600;margin-bottom:2px}
+.btns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.btns .btn{padding:10px 8px;font-size:13px}
+@media(max-width:560px){.two,.btns{grid-template-columns:1fr}details.tm summary{gap:10px;padding:12px}.nm{font-size:16px}.tot{font-size:12px}}
+.foot{border-top:3px solid var(--red);background:var(--head)}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:22px}
+.foot nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.bar{display:none}
+.bar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 2px;font:500 12px Inter,sans-serif;color:var(--text)}
+.bar a.c{color:var(--gold)}
+.bar svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:1000px){.cols{grid-template-columns:1fr}.cols>aside{order:-1}}
+@media(max-width:760px){
+.wrap{padding:0 14px}
+.top .wrap{flex-wrap:wrap;gap:12px}.search{order:3;flex-basis:100%}.acts{margin-left:auto}
+.btn{padding:9px 14px}
+.nav{display:none}
+.title{gap:14px}.logo{width:64px;height:64px}
+.cols{padding-top:14px;padding-bottom:28px}
+.info dl{grid-template-columns:100px 1fr}
+.foot .wrap{flex-direction:column;align-items:flex-start}
+.bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--head);border-top:3px solid var(--red);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{padding-bottom:72px}
+}
+</style>
+</head>
+<body>
+<header class="top" id="top"><div class="wrap">
+ <a class="brand" href="index.html"><span class="mark">EP</span>Esports Pedia</a>
+ <form class="search" role="search" onsubmit="return false"><input id="q" type="search" placeholder="Search teams, players, tournaments" aria-label="Search"><button type="submit">Search</button></form>
+ <div class="acts"><a class="btn red" href="#">Submit an Update</a><a class="btn gold" href="#">Log in</a></div>
+</div></header>
+<nav class="nav" aria-label="Main"><div class="wrap">
+ <a href="index.html">Home</a><a class="on" href="teams.html">Teams</a><a href="#">Players</a><a href="#">Tournaments</a><a href="#">Transfers</a><a href="#">Results</a><a href="#">Rankings</a><a href="#">Earnings</a><a href="#">Games</a>
+</div></nav>
+
+<div class="wrap">
+ <div class="crumb"><a href="index.html">Home</a> / Teams</div>
+ <div class="head"><h1>All Teams</h1><p>Every esports team of Bangladesh, ranked by earnings. Open a team to see its roster, then go to the full team page.</p></div>
+</div>
+<main class="wrap cols">
+ <aside class="col"><section class="panel"><h2>Filter teams</h2>
+  <div class="fl">
+   <label>Team name<input id="fq" type="search" placeholder="Type a team name"></label>
+   <label>Game<select id="fg"><option value="">All games</option></select></label>
+   <label>Status<select id="fs"><option value="">All</option><option>Active</option><option>Disbanded</option></select></label>
+   <label>Sort by<select id="so"><option value="e">Earnings (high to low)</option><option value="n">Name (A to Z)</option></select></label>
+   <button type="button" id="fr">Clear filters</button>
+  </div></section>
+  <section class="panel help"><h2>Team missing?</h2><div class="body">
+   <p>If your team is not in the list, send us its details and an editor will add it.</p>
+   <a class="btn red" href="#">Submit a new team</a>
+  </div></section>
+ </aside>
+ <div class="col">
+  <div class="count"><b id="ct">[NUMBER] teams</b><span>Click a team to see its roster</span></div>
+  <div class="tl" id="gr"></div>
+ </div>
+</main>
+
+<footer class="foot"><div class="wrap">
+ <span class="brand" style="font-size:18px"><span class="mark" style="width:32px;height:32px;font-size:14px">EP</span>Esports Pedia</span>
+ <nav aria-label="Footer"><a href="#">About</a><a href="#">Contact</a><a href="#">Rules for contributors</a><a href="#">Facebook</a><a href="#">YouTube</a><a href="#">Discord</a></nav>
+</div></footer>
+
+<nav class="bar" aria-label="Quick">
+ <a href="#"><svg viewBox="0 0 24 24"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-6 1-9z"/></svg>Trending</a>
+ <a href="#"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H4v1a3 3 0 0 0 4 3M16 6h4v1a3 3 0 0 1-4 3M12 13v4M8 20h8"/></svg>Tournaments</a>
+ <a class="c" href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Contribute</a>
+ <a href="#q"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg>Search</a>
+ <a href="#top"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Top</a>
+</nav>
+<script>
+/* Replace this list with the real data later (data.js). */
+var T=[];for(var i=1;i<=12;i++)T.push({n:"[TEAM NAME "+i+"]",g:i%2?"[GAME 1]":"[GAME 2]",c:"[CITY]",s:i%3?"Active":"Disbanded",e:"[AMOUNT]",v:i*1000,p:"team.html"});
+var $=function(i){return document.getElementById(i)};
+var gs=[];T.forEach(function(t){if(gs.indexOf(t.g)<0)gs.push(t.g)});
+gs.forEach(function(g){var o=document.createElement("option");o.textContent=g;$("fg").appendChild(o)});
+function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function draw(){
+ var q=$("fq").value.toLowerCase(),g=$("fg").value,s=$("fs").value,e=$("so").value=="e";
+ var r=T.filter(function(t){return t.n.toLowerCase().indexOf(q)>-1&&(!g||t.g==g)&&(!s||t.s==s)});
+ r.sort(e?function(a,b){return b.v-a.v}:function(a,b){return a.n.localeCompare(b.n)});
+ $("ct").textContent=r.length+" teams";
+ var pl="";for(var k=1;k<=5;k++)pl+='<a class="pl1" href="player.html"><i role="img" aria-label="Player photo placeholder"></i>[PLAYER ID]</a>';
+ $("gr").innerHTML=r.length?r.map(function(t,i){return'<details class="tm"'+(i==0?' open':'')+'><summary><span class="rk">'+(e?'#'+(i+1):'')+'</span><span class="ph" role="img" aria-label="Team logo placeholder"></span><span class="nm">'+esc(t.n)+'</span><span class="tot">Total earnings: '+esc(t.e)+'</span></summary><div class="det"><div class="roster">'+pl+'</div><div class="two"><div><small>Next match</small>[TEAM NAME] vs [TEAM NAME]</div><div><small>Latest transfer</small>[PLAYER ID] joins on [DATE]</div></div><div class="btns"><a class="btn red" href="'+t.p+'">Team Page</a><a class="btn gold" href="#">Results</a><a class="btn gold" href="#">Played Matches</a></div></div></details>'}).join(""):'<div class="empty panel">No team matches these filters. Clear the filters and try again.</div>';
+}
+["fq","fg","fs","so"].forEach(function(i){$(i).addEventListener("input",draw)});
+$("fr").addEventListener("click",function(){$("fq").value="";$("fg").value="";$("fs").value="";$("so").value="e";draw()});
+draw();
+</script>
+</body>
+</html>

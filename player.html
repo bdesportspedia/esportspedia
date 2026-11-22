@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>[PLAYER ID] – Esports Pedia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#03120d;--panel:#06291c;--head:#0a3a28;--line:#1d5a40;--green:#0f6b43;--red:#d6001c;--gold:#ffc933;--orange:#ff9d00;--text:#eaf3ee;--muted:#9fb8ab;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 15px/1.6 Inter,system-ui,Arial,sans-serif}
+a{color:inherit;text-decoration:none}a:hover{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+h1,h2,h3,.brand{font-family:"Space Grotesk",Inter,sans-serif;margin:0}
+.wrap{max-width:1360px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:600 14px Inter,sans-serif;padding:10px 18px;border-radius:8px;border:2px solid transparent;cursor:pointer;white-space:nowrap}
+.btn.red{background:var(--red);color:#fff}.btn.red:hover{background:#f0001f;color:#fff}
+.btn.gold{border-color:var(--gold);color:var(--gold)}.btn.gold:hover{background:var(--gold);color:#03120d}
+.top{background:var(--head);border-bottom:3px solid var(--red)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:700}
+.mark{width:40px;height:40px;border-radius:10px;background:var(--red);display:grid;place-items:center;font:700 18px "Space Grotesk",sans-serif;color:#fff}
+.search{flex:1;display:flex;min-width:0}
+.search input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);color:var(--text);padding:11px 14px;border-radius:8px 0 0 8px;font:400 14px Inter,sans-serif}
+.search input::placeholder{color:var(--muted)}
+.search button{background:var(--green);border:1px solid var(--line);border-left:0;color:#fff;padding:0 18px;border-radius:0 8px 8px 0;font:600 14px Inter,sans-serif;cursor:pointer}
+.acts{display:flex;gap:10px}
+.nav{background:var(--panel);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;overflow-x:auto;scrollbar-width:none}
+.nav a{padding:13px 18px;font:600 14px "Space Grotesk",sans-serif;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap}
+.nav a.on{color:var(--text);border-bottom-color:var(--gold)}
+.crumb{padding-top:16px;color:var(--muted);font-size:13px}
+.crumb a{color:var(--muted)}.crumb a:hover{color:var(--gold)}
+.tabs{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);margin-top:10px;flex-wrap:wrap}
+.tabs div{display:flex}
+.tabs a{padding:10px 16px;font:600 14px Inter,sans-serif;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs a.on{color:var(--text);border-bottom-color:var(--gold)}
+.tabs .btn{padding:7px 14px;margin-bottom:6px}
+.title{display:flex;align-items:center;gap:18px;padding:22px 0 6px}
+.logo{width:84px;height:84px;border-radius:16px;background:var(--head);border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-size:12px;flex:none}
+.title h1{font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-.02em}
+.title p{margin:4px 0 0;color:var(--muted)}
+.tag{display:inline-block;font:600 12px Inter,sans-serif;padding:3px 10px;border-radius:999px;background:var(--head);border:1px solid var(--line);color:var(--gold);margin-right:6px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;padding-top:18px;padding-bottom:36px;align-items:start}
+.col{display:grid;gap:20px;min-width:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:0}
+.panel>h2{background:var(--head);border-bottom:2px solid var(--gold);padding:11px 16px;font-size:16px;font-weight:600}
+.body{padding:14px 16px}
+.body p{margin:0 0 10px;color:#cfe3d8;max-width:78ch}.body p:last-child{margin:0}
+.toc{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px;color:var(--text)}
+.toc a:hover{border-color:var(--gold);color:var(--gold)}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th{text-align:left;color:var(--gold);font:600 12px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:11px 16px;border-bottom:1px solid var(--line);background:rgba(10,58,40,.45)}
+td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px}
+tr:last-child td{border-bottom:0}
+tfoot td{background:rgba(10,58,40,.45);border-top:1px solid var(--line);border-bottom:0}
+tbody tr:hover{background:rgba(15,107,67,.22)}
+td.amt{color:var(--gold);font-weight:600;white-space:nowrap}
+td.pl{font-weight:600}
+.pn{display:flex;align-items:center;gap:10px}
+.ph{width:30px;height:30px;border-radius:50%;background:var(--head);border:1px dashed var(--line);flex:none}
+.res{display:inline-block;min-width:44px;text-align:center;font:600 12px Inter,sans-serif;padding:3px 8px;border-radius:6px;background:var(--head);border:1px solid var(--line)}
+.res.w{background:var(--green);border-color:var(--green)}.res.l{background:#5a0a14;border-color:var(--red)}
+.more{display:block;padding:12px 16px;border-top:1px solid var(--line);font:600 14px Inter,sans-serif;color:var(--gold)}
+.more:hover{background:var(--head)}
+.info dl{margin:0;display:grid;grid-template-columns:110px 1fr;font-size:14px}
+.info dt,.info dd{margin:0;padding:10px 16px;border-bottom:1px solid var(--line)}
+.info dt{color:var(--muted)}
+.info dd{color:var(--text)}
+.info dd.g{color:var(--gold);font-weight:600}
+.cover{display:grid;place-items:center;padding:22px 16px 16px;gap:10px;text-align:center;border-bottom:1px solid var(--line)}
+.cover .logo{width:120px;height:120px}
+.cover h3{font-size:20px}
+.soc{display:flex;flex-wrap:wrap;gap:8px;padding:14px 16px}
+.soc a{border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:13px;background:var(--bg)}
+.soc a:hover{border-color:var(--gold)}
+.help p{margin:0 0 14px;color:#cfe3d8}
+.foot{border-top:3px solid var(--red);background:var(--head)}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:22px}
+.foot nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.bar{display:none}
+.bar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 2px;font:500 12px Inter,sans-serif;color:var(--text)}
+.bar a.c{color:var(--gold)}
+.bar svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:1000px){.cols{grid-template-columns:1fr}.cols>aside{order:-1}}
+@media(max-width:760px){
+.wrap{padding:0 14px}
+.top .wrap{flex-wrap:wrap;gap:12px}.search{order:3;flex-basis:100%}.acts{margin-left:auto}
+.btn{padding:9px 14px}
+.nav{display:none}
+.title{gap:14px}.logo{width:64px;height:64px}
+.cols{padding-top:14px;padding-bottom:28px}
+.info dl{grid-template-columns:100px 1fr}
+.foot .wrap{flex-direction:column;align-items:flex-start}
+.bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--head);border-top:3px solid var(--red);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{padding-bottom:72px}
+}
+</style>
+</head>
+<body>
+<header class="top" id="top"><div class="wrap">
+ <a class="brand" href="#"><span class="mark">EP</span>Esports Pedia</a>
+ <form class="search" role="search" onsubmit="return false"><input id="q" type="search" placeholder="Search teams, players, tournaments" aria-label="Search"><button type="submit">Search</button></form>
+ <div class="acts"><a class="btn red" href="#">Submit an Update</a><a class="btn gold" href="#">Log in</a></div>
+</div></header>
+<nav class="nav" aria-label="Main"><div class="wrap">
+ <a href="#">Home</a><a href="#">Teams</a><a class="on" href="#">Players</a><a href="#">Tournaments</a><a href="#">Transfers</a><a href="#">Results</a><a href="#">Rankings</a><a href="#">Earnings</a><a href="#">Games</a>
+</div></nav>
+
+<div class="wrap">
+ <div class="crumb"><a href="#">Home</a> / <a href="#">Players</a> / [PLAYER ID]</div>
+ <div class="tabs"><div><a class="on" href="#">Player</a><a href="#">Talk</a><a href="#">History</a></div><a class="btn gold" href="#">Edit this page</a></div>
+ <div class="title">
+  <div class="logo" role="img" aria-label="Player photo placeholder">[PHOTO]</div>
+  <div><h1>[PLAYER ID]</h1><p>[FULL NAME]<br><span class="tag">[GAME NAME]</span><span class="tag">[ROLE]</span><span class="tag">[STATUS]</span> Last updated [DATE]</p></div>
+ </div>
+</div>
+
+<main class="wrap cols">
+ <div class="col">
+  <section class="panel"><h2>Contents</h2><div class="body"><nav class="toc" aria-label="Contents">
+   <a href="#overview">Overview</a><a href="#career">Career history</a><a href="#achievements">Achievements</a><a href="#earnings">Earnings by year</a><a href="#matches">Recent matches</a>
+  </nav></div></section>
+
+  <section class="panel" id="overview"><h2>Overview</h2><div class="body">
+   <p>[PLAYER ID] ([FULL NAME]) is a Bangladeshi [GAME NAME] player who currently plays for [TEAM NAME] as [ROLE].</p>
+   <p>[Career in short: when the player started, teams played for, best results and playing style. Every claim should link to a source.]</p>
+  </div></section>
+
+  <section class="panel" id="career"><h2>Career history</h2>
+   <div class="scroll"><table><thead><tr><th>From</th><th>To</th><th>Team</th><th>Role</th></tr></thead><tbody id="ch"></tbody></table></div>
+   <a class="more" href="#">View transfers of this player</a></section>
+
+  <section class="panel" id="achievements"><h2>Achievements</h2>
+   <div class="scroll"><table><thead><tr><th>Date</th><th>Place</th><th>Tournament</th><th>Team</th><th>Prize</th></tr></thead><tbody id="ac"></tbody></table></div>
+   <a class="more" href="#">View full results history</a></section>
+
+  <section class="panel" id="earnings"><h2>Earnings by year</h2>
+   <div class="scroll"><table><thead><tr><th>Year</th><th>Tournaments</th><th>Earnings</th></tr></thead><tbody id="ey"></tbody>
+   <tfoot><tr><td class="pl">Total</td><td>[NUMBER]</td><td class="amt">[AMOUNT]</td></tr></tfoot></table></div></section>
+
+  <section class="panel" id="matches"><h2>Recent matches</h2>
+   <div class="scroll"><table><thead><tr><th>Date</th><th>Team</th><th>Opponent</th><th>Score</th><th>Tournament</th></tr></thead><tbody id="mt"></tbody></table></div>
+   <a class="more" href="#">View all matches</a></section>
+ </div>
+
+ <aside class="col">
+  <section class="panel info"><h2>Player information</h2>
+   <div class="cover"><div class="logo" style="width:130px;height:160px" role="img" aria-label="Player photo placeholder">[PHOTO]</div><h3>[PLAYER ID]</h3></div>
+   <dl>
+    <dt>Name</dt><dd>[FULL NAME]</dd>
+    <dt>Born</dt><dd>[DATE]</dd>
+    <dt>Nationality</dt><dd>Bangladesh</dd>
+    <dt>Game</dt><dd>[GAME NAME]</dd>
+    <dt>Role</dt><dd>[ROLE]</dd>
+    <dt>Status</dt><dd>[ACTIVE / RETIRED]</dd>
+    <dt>Team</dt><dd><a href="#">[TEAM NAME]</a></dd>
+    <dt>Joined</dt><dd>[DATE]</dd>
+    <dt>Earnings</dt><dd class="g">[AMOUNT]</dd>
+    <dt>Rank</dt><dd class="g">#[NUMBER]</dd>
+   </dl>
+   <div class="soc"><a href="#">Facebook</a><a href="#">YouTube</a><a href="#">Instagram</a><a href="#">Stream</a></div>
+  </section>
+  <section class="panel help"><h2>Help build the wiki</h2><div class="body">
+   <p>Know a missing result, team change or prize amount for [PLAYER ID]? Send it in and an editor will review it.</p>
+   <a class="btn red" href="#">Submit an Update</a>
+  </div></section>
+ </aside>
+</main>
+
+<footer class="foot"><div class="wrap">
+ <span class="brand" style="font-size:18px"><span class="mark" style="width:32px;height:32px;font-size:14px">EP</span>Esports Pedia</span>
+ <nav aria-label="Footer"><a href="#">About</a><a href="#">Contact</a><a href="#">Rules for contributors</a><a href="#">Facebook</a><a href="#">YouTube</a><a href="#">Discord</a></nav>
+</div></footer>
+
+<nav class="bar" aria-label="Quick">
+ <a href="#"><svg viewBox="0 0 24 24"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-6 1-9z"/></svg>Trending</a>
+ <a href="#"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H4v1a3 3 0 0 0 4 3M16 6h4v1a3 3 0 0 1-4 3M12 13v4M8 20h8"/></svg>Tournaments</a>
+ <a class="c" href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Contribute</a>
+ <a href="#q"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg>Search</a>
+ <a href="#top"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Top</a>
+</nav>
+<script>
+function fill(id,n,fn){var h="";for(var i=1;i<=n;i++)h+=fn(i);document.getElementById(id).innerHTML=h}
+fill("ch",4,function(i){return'<tr><td>[DATE]</td><td>'+(i==1?'<span class="res w">Present</span>':'[DATE]')+'</td><td><a href="#">[TEAM NAME]</a></td><td>[ROLE]</td></tr>'});
+fill("ac",5,function(i){return'<tr><td>[DATE]</td><td><span class="res'+(i==1?' w':'')+'">[PLACE]</span></td><td><a href="#">[TOURNAMENT NAME]</a></td><td><a href="#">[TEAM NAME]</a></td><td class="amt">[AMOUNT]</td></tr>'});
+fill("ey",3,function(){return'<tr><td>[YEAR]</td><td>[NUMBER]</td><td class="amt">[AMOUNT]</td></tr>'});
+fill("mt",5,function(i){return'<tr><td>[DATE]</td><td><a href="#">[TEAM NAME]</a></td><td><a href="#">[TEAM NAME]</a></td><td><span class="res '+(i%2?'w':'l')+'">[SCORE]</span></td><td><a href="#">[TOURNAMENT NAME]</a></td></tr>'});
+</script>
+</body>
+</html>
